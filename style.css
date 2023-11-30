@@ -19,3 +19,16 @@ margin-top: 5px;
     text-decoration: none;
     /* text-align: right; */
 }
+.dashul{
+    display: flex;
+ justify-content: space-between; 
+ padding: 5px;
+}
+.dashdiv{
+    padding: 20px;
+    /* background-color:; */
+    width: 500px;
+    /* background-color:aliceblue; */
+    margin-left: 100px;
+margin-top: 50px;
+}

@@ -9,24 +9,27 @@
 </head>
 <body>
     <nav class=" bg-info  ">
-        <ul class="d-flex">
-        <h2 class="text-start  text-wrap"><b>Personal Blogging app</b></h2>
+        <ul class="d-flex p-2">
+        <h5 class="text-start  text-wrap">Personal Blogging app</h5>
         <!-- <h2 class=""><a href="./login.html">Login</a></h2> -->
         </ul>
         
             </nav>
-            <h2 class="bg-primary-subtle ">Login</h2>
+            <h4 class="bg-primary-subtle p-2 ">Login</h4>
             <div  class="d-flex justify-content-center mt-5  border border-1">
-                <div >
+
+                <div>
+               <form>
                     <!-- <input class="inp1"  type="text" placeholder="Enter your first name"><br><br> -->
                     <!-- <input class="inp1"  type="text" placeholder="Enter your last name"><br><br> -->
-                    <input class="inp1"  type="Email" placeholder="Enter your email"><br><br>
-                    <input class="inp1" type="password" placeholder="Enter your password" ><br><br>
-                    <input class="inp1" type="password" placeholder="enter your confirm password" ><br><br>
-                    <button  type="button" class="btn btn-primary butn">Login</button>
+                    <input class="inp1" id="email"  type="Email" placeholder="Enter your email"><br><br>
+                    <input class="inp1" id="password" type="password" placeholder="Enter your password" ><br><br>
+                    <input class="inp1" id="confirmpassword" type="password" placeholder="enter your confirm password" ><br><br>
+                    <button  type="submit" class="btn btn-primary butn ">Login</button>
+                </form>
                 </div>
                 </div>
 
-    
+    <script type="module" src="login.js"></script>
 </body>
 </html>
