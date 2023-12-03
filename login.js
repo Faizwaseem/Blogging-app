@@ -13,13 +13,14 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-const form=document.querySelector('form')
+const form=document.querySelector('#form')
 
 form.addEventListener('submit',(e)=>{
     e.preventDefault()
     signInWithEmailAndPassword(auth, email.value, pass.value)
     .then((userCredential) => {
        console.log(email.value)
+       console.log(pass.value);
       const user = userCredential.user;
     console.log(user)
     window.location='./dashboard.html'

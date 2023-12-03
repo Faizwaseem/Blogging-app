@@ -1,12 +1,12 @@
 import { signOut,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
 import { db , auth} from "./config.js";
-import { collection, addDoc,getDocs } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js"; 
+import { collection, where, addDoc,getDocs, doc ,orderBy, query, Timestamp} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js"; 
 
 let arr=[] 
 const tittle=document.querySelector('#tittle')
 const description=document.querySelector('#description')
 const form=document.querySelector('#form')
-const div=document.querySelector('#div')
+const div=document.querySelector('#renderdata')
 
 onAuthStateChanged(auth,(user)=>{
 if(user){
@@ -18,18 +18,21 @@ if(user){
 alert('please enter a tittle')
 return
     }
+    render(uid)
     e.preventDefault()
       try {
         const docRef =  addDoc(collection(db, "users"), {
           tittle: tittle.value,
           description: description.value,
-          uid:uid
+          uid:uid,
+          postDate: Timestamp.fromDate(new Date()),
         });
         console.log("Document written with ID: ", uid);
       } catch (e) {
         console.error("Error adding document: ", e);
       }
-      
+      tittle.value=''
+      description.value=''  
     
     })
     render(uid)
@@ -47,7 +50,8 @@ window.location='./index.html'
   
 async function render(uid){
 arr=[]
-  const querySnapshot = await getDocs(collection(db, "users"));
+ div.innerHTML=''
+  const querySnapshot = await getDocs(query(collection(db, "users")), where("uid", "==", uid), orderBy("postDate", "desc"));
   querySnapshot.forEach((doc) => {
     // console.log(`${doc.id} => ${doc.data()}`);
   arr.push({...doc.data(),docId:doc.id})
@@ -55,16 +59,16 @@ console.log(arr);
 
   });
  arr.forEach((item, index)=>{
-div.innerHTML+=`<h1><b>${item.tittle}</b></h1><br><div>${item.description}</div>`
+div.innerHTML+=`<h1 class='mt-5'><b>${item.tittle}</b></h1><div class=' bg-white '>${item.description}</div> <br> <div> <button  id="remove" class=" bg-sky-500 w-20 p-2 rounded">Delete</button>
+<button id="edit" class=" bg-sky-500 w-20 p-2 rounded">Edit</button></div>`
 
 
 
  })
+ 
+    
 }
-
    
-
-
 
 
 
