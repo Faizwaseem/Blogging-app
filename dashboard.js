@@ -18,6 +18,10 @@ if(user){
 alert('please enter a tittle')
 return
     }
+    if(description.value===''){
+      alert('please enter description')
+    return
+    }
     render(uid)
     e.preventDefault()
       try {
@@ -45,13 +49,14 @@ window.location='./index.html'
 })
 
 
+// render(uid) 
 
 
   
 async function render(uid){
-arr=[]
+  arr=[]
  div.innerHTML=''
-  const querySnapshot = await getDocs(query(collection(db, "users")), where("uid", "==", uid), orderBy("postDate", "desc"));
+  const querySnapshot = await getDocs(query(collection(db, "users"),where("uid","==",uid)));
   querySnapshot.forEach((doc) => {
     // console.log(`${doc.id} => ${doc.data()}`);
   arr.push({...doc.data(),docId:doc.id})
@@ -59,15 +64,10 @@ console.log(arr);
 
   });
  arr.forEach((item, index)=>{
-div.innerHTML+=`<h1 class='mt-5'><b>${item.tittle}</b></h1><div class=' bg-white '>${item.description}</div> <br> <div> <button  id="remove" class=" bg-sky-500 w-20 p-2 rounded">Delete</button>
+div.innerHTML+=`<div class='maindata'><h1 class='mt-5'><b>${item.tittle}</b></h1><div class=' '>${item.description}</div> <br> <div> <button  id="remove" class=" bg-sky-500 w-20 p-2 rounded">Delete</button>
 <button id="edit" class=" bg-sky-500 w-20 p-2 rounded">Edit</button></div>`
 
-
-
- })
- 
-    
-}
+})}
    
 
 

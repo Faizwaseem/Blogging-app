@@ -23,12 +23,15 @@ form.addEventListener('submit',(e)=>{
        console.log(pass.value);
       const user = userCredential.user;
     console.log(user)
+    
     window.location='./dashboard.html'
     })
     .catch((error) => {
+      
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log(errorMessage)
+      
     });
 
 })
