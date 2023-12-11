@@ -1,45 +1,48 @@
 import{collection,getDocs} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js";
 import { auth,db } from "./config.js";
 
-const div=document.querySelector('#renderdata')
-
+const div=document.querySelector('#renderdata0')
 
 
 
 let arr=[]
 
 
-// async function render(){
-
-// const querySnapshot = await getDocs(collection(db, "users"));
-// querySnapshot.forEach((doc) => {
-//   console.log(`${doc.id} => ${doc.data()}`);  
-  
-// div.innerHTML+=`${doc.id}}`
-// });
+    
 
 
-// }
+
+
+
+const querySnapshot = await getDocs(collection(db, "users"));
+querySnapshot.forEach((doc) => {
+//   console.log(`${doc.id} => ${doc.data()}`);
+  arr.push(`${doc.id}=>${doc.data()}`)
+  console.log(arr);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // render()
-
-
-
-
-
-
-
-
-
-
-// // render()
 // async function render(){
 //     arr=[]
-//    div.innerHTML=''
+// //    div.innerHTML=''
 //     const querySnapshot = await getDocs(query(collection(db, "users")));
 //     querySnapshot.forEach((doc) => {
 //       console.log(`${doc.id} => ${doc.data()}`);
-//     // arr.push({...doc.data(),docId:doc.id})
-// //   console.log(arr);
+//     arr.push({...doc.data(),docId:doc.id})
+//   console.log(arr);
   
 //     });
 //    arr.forEach((item, index)=>{
@@ -47,5 +50,6 @@ let arr=[]
 //   <button id="edit" class=" bg-sky-500 w-20 p-2 rounded">Edit</button></div>`
   
 //   }
-//   )}
+//   )
+// }
      
