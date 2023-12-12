@@ -1,4 +1,4 @@
-.container{
+.indexcontain{
     justify-content: space-between;
 }
 .inp1{
@@ -31,19 +31,48 @@ margin-top: 5px;
     border-radius: 2%;
    
     width: 700px;
-    background-color:lightblue;
+    background-color:rgb(73, 95, 115);
     margin-left: 100px;
 margin-top: 50px;
 }
 .maindata{
-    background-color:lightblue;
-    width: 700px;
+    background-color:rgb(73, 95, 115);
+    width: 500px;
+
 margin-top: 2%;
+
 border-radius: 2%;
+/* justify-content: space-around; */
 padding: 1%;
 margin-left: 5%;
 }
 .profile{
     background-color:lightblue;
+
+}
+.blogsdata{
+    text-align: center;
+    background-color:rgb(73, 95, 115);
+    width: 500px;
+
+margin-top: 2%;
+
+border-radius: 2%;
+justify-content: space-around;
+padding: 1%;
+margin-left: 32%;
+
+}
+/*  
+#renderdata{
+    
+} */
+
+#renderdatablog{
+
+justify-content: center;
+/* width: 700px; */
+    
+    margin-left: 50%;
 
 }
