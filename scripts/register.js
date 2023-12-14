@@ -1,5 +1,5 @@
 import { createUserWithEmailAndPassword,onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
-import { auth } from "./config.js";
+import { auth } from "../config.js";
 const firstname=document.querySelector('#firstname')
 const lastname=document.querySelector('#lastname')
 const email=document.querySelector('#email')

@@ -1,5 +1,5 @@
 import { signOut,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
-import { db , auth} from "./config.js";
+import { db , auth} from "../config.js";
 import { collection, where, addDoc,getDocs,deleteDoc, doc ,orderBy, query, Timestamp} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js"; 
 
 let arr=[] 
@@ -60,39 +60,39 @@ async function render(uid){
   querySnapshot.forEach((doc) => {
     // console.log(`${doc.id} => ${doc.data()}`);
   arr.push({...doc.data(),docId:doc.id})
+  
+});
 console.log(arr);
-
-  });
  arr.forEach((item, index)=>{
-div.innerHTML+=`<div class='maindata'><h1 class='mt-5'><b>${item.tittle}</b></h1><div class=' '>${item.description}</div> <br> <div> <button  id="deletes" type='submit' class=" bg-indigo-500 w-20 p-2 rounded">Delete</button>
-<button id="edit" class=" bg-indigo-500 w-20 p-2 rounded">Edit</button></div>`
+div.innerHTML+=`<div class='maindata'><h1 class='mt-5'><b>${item.tittle}</b></h1><div class=' '>${item.description}</div> <br> <button  id="deletes" type='submit' class=" bg-indigo-500 w-20 p-2 rounded">Delete</button>
+<button id="edit" onclick="edits()" class=" bg-indigo-500 w-20 p-2 rounded">Edit</button>`
 
 })}
    
-const edit  = document.querySelectorAll('#edit')
+// const edit  = document.querySelectorAll('#edit')
 const deletes = document.querySelectorAll('#deletes')
 
 
-// deletes.addEventListener('click',(e)=>{
-// e.preventDefault()
-// console.log('dlelet');
+
+// deletes.addEventListener('click', ()=>{
+
+
+// console.log('delete');
 
 // })
 
 
 
+// deletes.forEach((deletes,index)=>{
+
+// deletes.addEventListener('click',async ()=>{
+//   await deleteDoc(doc(db, "users", arr[index].doc.Id));
+// console.log('dleted'+ index);
+
+// })
 
 
-deletes.forEach((deletes,index)=>{
-
-deletes.addEventListener('click',async ()=>{
-  await deleteDoc(doc(db, "users", arr[index].doc.Id));
-console.log('dleted'+ index);
-// render(uid)
-})
-
-
-})
+// })
 
 
 
