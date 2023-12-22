@@ -1,5 +1,5 @@
 import { signOut,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
-import { db , auth} from "../config.js";
+import { db , auth} from "./config.js";
 import { collection, where, addDoc,getDocs,deleteDoc, doc ,orderBy, query, Timestamp} from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js"; 
 
 let arr=[] 
@@ -56,26 +56,26 @@ window.location='./index.html'
 async function render(uid){
   arr=[]
  div.innerHTML=''
-  const querySnapshot = await getDocs(query(collection(db, "users"),where("uid","==",uid)));
+ const querySnapshot = await getDocs(query(collection(db, "users"),where("uid","==",uid)));
   querySnapshot.forEach((doc) => {
     // console.log(`${doc.id} => ${doc.data()}`);
   arr.push({...doc.data(),docId:doc.id})
   
 });
 console.log(arr);
- arr.forEach((item, index)=>{
-div.innerHTML+=`<div class='maindata'><h1 class='mt-5'><b>${item.tittle}</b></h1><div class=' '>${item.description}</div> <br> <button  id="deletes" type='submit' class=" bg-indigo-500 w-20 p-2 rounded">Delete</button>
+arr.forEach((item, index)=>{
+   div.innerHTML+=`<div class='maindata'><h1 class='mt-5'><b>${item.tittle}</b></h1><div class=' '>${item.description}</div> <br> <button  id="deletes" type='submit' class=" bg-indigo-500 w-20 p-2 rounded">Delete</button>
 <button id="edit" onclick="edits()" class=" bg-indigo-500 w-20 p-2 rounded">Edit</button>`
 
 })}
    
 // const edit  = document.querySelectorAll('#edit')
-const deletes = document.querySelectorAll('#deletes')
+// const del = document.querySelectorAll('#deletes')
 
 
 
-// deletes.addEventListener('click', ()=>{
-
+// del.addEventListener('click', ()=>{
+// // e.preventDefault()
 
 // console.log('delete');
 
